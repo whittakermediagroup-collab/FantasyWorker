@@ -1,3 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #14181C;
+  --surface: #1B2126;
+  --surface-2: #222A30;
+  --line: #313B42;
+  --text: #E7E9EA;
+  --muted: #8B969E;
+  --gold: #C9A227;
+  --turf: #3E7C59;
+  --rust: #B4432C;
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Oswald', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.4em;
+}
+
+h1 { font-size: 1.6rem; }
+h3 { font-size: 1.05rem; color: var(--gold); }
+h4 { font-size: 0.85rem; color: var(--muted); text-transform: none; }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.app-shell { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  background: var(--gold);
+  color: #14181C;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+.brand-name { font-family: 'Oswald', sans-serif; font-weight: 600; }
+
+.topbar nav { display: flex; gap: 20px; }
+.topbar nav a { color: var(--muted); }
+.topbar nav a.active { color: var(--text); }
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.back-link { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 4px; }
+
+.muted { color: var(--muted); }
+.error { color: var(--rust); }
+
+.btn-primary, .btn-secondary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn-primary { background: var(--gold); color: #14181C; }
+.btn-primary:disabled { opacity: 0.5; cursor: default; }
+.btn-secondary { background: transparent; border-color: var(--line); color: var(--text); }
+
+.link-danger { background: none; border: none; color: var(--rust); cursor: pointer; font-size: 0.8rem; padding: 0; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 12px; }
+.panel-head-actions { display: flex; gap: 10px; align-items: center; }
+
+.league-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.league-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.league-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.platform-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--turf);
+  border: 1px solid var(--turf);
+  border-radius: var(--radius);
+  padding: 2px 6px;
+}
+.league-card-actions { display: flex; gap: 14px; margin-top: 10px; font-size: 0.85rem; }
+
+.form-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--muted); flex: 1; min-width: 180px; }
+
+input, select {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 7px 9px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.team-name-input { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; background: transparent; border: none; color: var(--gold); padding: 0; }
+.team-name-input:focus { outline: none; border-bottom: 1px solid var(--gold); }
+
+.opponent-block { border-top: 1px dashed var(--line); padding-top: 14px; margin-top: 14px; }
+.opponent-block .panel { border: none; background: transparent; padding: 0; margin-bottom: 0; }
+
+.roster-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.roster-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line);
+  padding: 6px 8px;
+}
+.roster-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.roster-table input, .roster-table select { width: 100%; }
+.row-start { background: rgba(62, 124, 89, 0.12); }
+
+.pill { font-size: 0.68rem; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
+.pill-close { background: rgba(201, 162, 39, 0.18); color: var(--gold); }
+
+.trend-up { color: var(--turf); }
+.trend-down { color: var(--rust); }
+.injury-flag { color: var(--rust); font-weight: 600; }
+
+.save-indicator { font-size: 0.78rem; color: var(--muted); }
+
+.trade-card-head { display: flex; justify-content: space-between; align-items: center; }
+.likelihood { font-family: 'Oswald', sans-serif; font-size: 0.85rem; padding: 4px 10px; border-radius: var(--radius); }
+.likelihood-high { background: rgba(62, 124, 89, 0.2); color: var(--turf); }
+.likelihood-mid { background: rgba(201, 162, 39, 0.18); color: var(--gold); }
+.likelihood-low { background: rgba(180, 67, 44, 0.18); color: var(--rust); }
+
+.trade-sides { display: flex; align-items: center; gap: 18px; margin: 12px 0; }
+.trade-sides > div:not(.trade-arrow) { flex: 1; }
+.trade-sides ul { margin: 0; padding-left: 18px; }
+.trade-arrow { font-size: 1.3rem; color: var(--muted); }
+.trade-reasoning { margin: 8px 0 4px; }
+.trade-risk { color: var(--rust); font-size: 0.85rem; margin: 0; }
 
 .autocomplete { position: relative; }
 .autocomplete-list {
