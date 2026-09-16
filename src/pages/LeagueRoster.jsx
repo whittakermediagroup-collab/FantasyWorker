@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { loadLeagues, saveLeagues, newPlayer } from '../lib/storage';
+import PlayerAutocomplete from '../components/PlayerAutocomplete';
 
 const POSITIONS = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
 
@@ -144,7 +145,13 @@ function RosterEditor({ title, team, onChangeName, onChangeRoster, onRemove }) {
         <tbody>
           {team.roster.map((p, idx) => (
             <tr key={idx}>
-              <td><input value={p.name} onChange={(e) => updatePlayer(idx, { name: e.target.value })} placeholder="Player name" /></td>
+              <td>
+                <PlayerAutocomplete
+                  value={p.name}
+                  placeholder="Start typing a player name"
+                  onSelect={(picked) => updatePlayer(idx, picked)}
+                />
+              </td>
               <td>
                 <select value={p.position} onChange={(e) => updatePlayer(idx, { position: e.target.value })}>
                   {POSITIONS.map((pos) => <option key={pos} value={pos}>{pos}</option>)}
